@@ -29,8 +29,9 @@ function generateMarkdown(response, data) {
   
   To install necessary dependencies, run the following command: 
   
+  \`\`\`
   ${response.install}
-
+  \`\`\`
   ## Usage
   
   ${response.usage}
@@ -46,9 +47,9 @@ function generateMarkdown(response, data) {
   ## Tests
   
   To install necessary dependencies, run the following command: 
-
+  \`\`\`
   ${response.tests}
-
+  \`\`\`
   ## Questions
   
   <img src="${avatar_url}" alt="avatar" style="border-radius: 16px" width="30"/>
