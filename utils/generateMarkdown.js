@@ -1,15 +1,19 @@
 // TODO: Return markdown string for README file given a data object.
-function generateMarkdown(response, data) {
+function generateMarkdown(response, data, licenseBadge) {
+  const projectUrl = response.projectName
+  projectUrl.trim()
   const { login, avatar_url, html_url, email } = data; // use object destructuring
-
+  const { projectName, description, install, usage, license, contribution, tests} = response;
   return `
-  # ${response.projectName} #
-  [license]
-  [Project](${html_url}/${response.projectName})
+  # ${projectName} #
+
+  ${licenseBadge}
+
+  [Project](${html_url}/${projectUrl})
   
   ## **Description**
   
-  -  ${response.description}
+  -  ${description}
   
   ### Table of Contents
   
@@ -30,25 +34,25 @@ function generateMarkdown(response, data) {
   To install necessary dependencies, run the following command: 
   
   \`\`\`
-  ${response.install}
+  ${install}
   \`\`\`
   ## Usage
   
-  ${response.usage}
+  ${usage}
   
   ## License
   
-  This project is licensed under the ${response.license}
+  This project is licensed under the ${license}
   
   ## Contributing
   
-  ${response.contribution}
+  ${contribution}
   
   ## Tests
   
   To install necessary dependencies, run the following command: 
   \`\`\`
-  ${response.tests}
+  ${tests}
   \`\`\`
   ## Questions
   
