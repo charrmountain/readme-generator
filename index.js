@@ -16,9 +16,8 @@ function main() {
   prompUser().then(userAnswers => {
     userObj = userAnswers;
     api.getUser(userAnswers).then(data => {
-        generateBadge(userObj);
-        const markdown = generateMarkdown(userObj, data, licenseLink);
-        return fs.writeFile("myReadMe.md", markdown, function(err) {
+        const markdown = generateMarkdown(userObj, data);
+        return fs.writeFile("ReadMe.md", markdown, function(err) {
             if (err) throw err;
             console.log("ReadMe created");
         });
@@ -74,17 +73,3 @@ function prompUser() {
     ]);
     return userAnswers;
 }
-
-function generateBadge(userObj){
-    licenseLink = userObj.license;
-    if (licenseLink === "MIT"){
-        licenseLink= "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
-    } if (licenseLink === "APACHE 2.0"){
-        licenseLink  = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
-     } if (licenseLink === "GPL3.0"){
-        licenseLink  = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
-     } if (userObj.license === "BSD3"){
-        licenseLink = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
-     }
-    return licenseLink;
-};
