@@ -17,7 +17,7 @@ function main() {
     userObj = userAnswers;
     api.getUser(userAnswers).then(data => {
         const markdown = generateMarkdown(userObj, data);
-        return fs.writeFile("ReadMe.md", markdown, function(err) {
+        return fs.writeFile("UserReadMe.md", markdown, function(err) {
             if (err) throw err;
             console.log("ReadMe created");
         });
