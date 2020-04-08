@@ -1,6 +1,5 @@
 # projectName #
-[![GitHub license]($link)]
-[Deployed Link]($link)
+[![GitHub Repository](https://github.com/charrmountain/readme-generator)]
 
 ## **Description**
 
